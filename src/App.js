@@ -1,26 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import { Route, Switch } from "react-router-dom";
+
+import Circle from "./Circle";
+import Grade from "./Grade";
 
 function App() {
+  const [week, setWeek] = React.useState(['일','월','화',
+  '수','목','금','토']);
+
   
-  const styles = {
-    border: "1px solid #eee",
-    padding: "20px",
-    width: "300px",
-    margin: "30px auto"
-  };
+    
   return (
     <div className="App">
-      <div style={styles}>
-
-      <p style={{color: "green", fontWeight:"700", fontSize:"50px"}}>안녕하세요!</p>
-      <hr style={{margin:"0 50px"}} />
-      <p style={{textAlign:"left", margin:"20px 50px"}}>이름을 입력해주세요.</p>
-      <input type="text" />
-    
-      </div>
+      <Container>
+        <Switch>
+          <Route path="/" exact render={(props) => (
+            <Circle week={week}/>
+          )}/>          
+          <Route path="/grade" component={Grade}/>
+        </Switch>
+      </Container>
     </div>
   );
 }
+
+
+const Container = styled.div`
+  width: 300px;
+  height: 80vh;
+  margin: 50px auto;
+  border: 1px solid orange;
+  border-radius: 30px;
+  text-align: center;
+  padding: 20px;
+`;
+
+
 
 export default App;
