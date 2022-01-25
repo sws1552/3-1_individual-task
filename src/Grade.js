@@ -3,7 +3,9 @@ import styled from "styled-components";
 import {useLocation, useHistory} from "react-router-dom";
 
 
-const Grade = () => {
+const Grade = (props) => {
+
+    console.log(props);
     
     const location = useLocation();
     const history = useHistory();
@@ -20,13 +22,13 @@ const Grade = () => {
         setClicked(clickStates);
     };
 
-    React.useEffect(() => {
-        sendReview();
-    }, [clicked]);
+    // React.useEffect(() => {
+    //     sendReview();
+    // }, [clicked]);
 
-    const sendReview = () => {
-        let score = clicked.filter(Boolean).length;
-    }
+    // const sendReview = () => {
+    //     let score = clicked.filter(Boolean).length;
+    // }
 
     
     

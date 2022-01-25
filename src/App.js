@@ -9,8 +9,14 @@ function App() {
   const [week, setWeek] = React.useState(['일','월','화',
   '수','목','금','토']);
 
+  let date = new Date();
+  let toWeek = date.getDay();
+  let del = week.splice(0,toWeek);
+
+  del.forEach((item, i) => {
+    week.push(item);
+  });
   
-    
   return (
     <div className="App">
       <Container>

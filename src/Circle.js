@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory,Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const Circle = (props) => {
@@ -9,22 +9,19 @@ const Circle = (props) => {
     const my_week = props.week;
 
     let num = Array.from({length:5}, (v, i) => i);
-    let date = new Date();
-    let toWeek = date.getDay();
-        
+    
     
     return (
         <>
             <h1>내 일주일은?</h1>
             {my_week.map((item, i) => {
                 const randomNum = Math.floor(Math.random() * 5) + 1;
-                if(i === 0){
-                    i = my_week.indexOf(my_week[toWeek]);
-                }
+                
                 return (
                     <Wrap key={i}>
-                        <Week>{}</Week>
+                        <Week>{item}</Week>
                         {num.map((v, j) => {
+                            
                             return <MiniCircle key={j} style={{backgroundColor: randomNum <= j ? "#D3D3D3" : "orange" }}></MiniCircle>
                         })}
 
