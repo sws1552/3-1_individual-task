@@ -13,7 +13,7 @@ const Circle = (props) => {
     
     return (
         <>
-            <h1>내 일주일은?</h1>
+            <h1>내  일주일은?</h1>
             {my_week.map((item, i) => {
                 const randomNum = Math.floor(Math.random() * 5) + 1;
                 
